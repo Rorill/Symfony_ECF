@@ -15,6 +15,7 @@ class Books
     private ?int $id = null;
 
     #[ORM\Column(length: 255)]
+    #[ORM\OneToOne(targetEntity: Author::class, inversedBy: 'books')]
     private ?string $title = null;
 
     #[ORM\Column(length: 255)]
@@ -23,6 +24,7 @@ class Books
     #[ORM\Column(type: Types::DATE_MUTABLE)]
     private ?\DateTimeInterface $publication_date = null;
 
+    #[ORM\OneToOne(targetEntity: Author::class, inversedBy: "id")]
     #[ORM\Column(length: 255)]
     private ?string $author = null;
 
